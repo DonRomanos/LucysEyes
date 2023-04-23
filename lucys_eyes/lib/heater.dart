@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'app_bar.dart';
 
 class Heater extends StatelessWidget {
   const Heater({super.key});
@@ -6,6 +7,6 @@ class Heater extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint("Building");
-    return const SizedBox.shrink();
+    return const Scaffold(appBar: TopAppBar());
   }
 }

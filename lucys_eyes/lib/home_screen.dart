@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'heater.dart';
+import 'app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -48,29 +49,17 @@ class _HomeScreenState extends State<HomeScreen> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          flexibleSpace: Row(
-            children: [
-              IconButton(
-                  onPressed: _incrementCounter, icon: const Icon(Icons.home)),
-              const Spacer(),
-              IconButton(
-                  onPressed: _gotoHeater, icon: const Icon(Icons.settings)),
-              IconButton(
-                  onPressed: _incrementCounter, icon: const Icon(Icons.refresh))
-            ],
-          ),
-        ),
+        appBar: const TopAppBar(),
         body: GridView.count(
             crossAxisCount: 5,
             padding: const EdgeInsets.all(20),
             mainAxisSpacing: 20,
             crossAxisSpacing: 20,
-            children: List.generate(
-                7,
-                (index) => TextButton.icon(
-                    onPressed: _incrementCounter,
-                    icon: const Icon(Icons.thermostat),
-                    label: const SizedBox.shrink()))));
+            children: [
+              TextButton.icon(
+                  onPressed: _gotoHeater,
+                  icon: const Icon(Icons.thermostat),
+                  label: const SizedBox.shrink())
+            ]));
   }
 }
